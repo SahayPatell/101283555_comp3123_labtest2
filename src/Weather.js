@@ -127,7 +127,7 @@ const WeatherComponent = (props) => {
     const { updateCity, fetchWeather } = props;
     const {weather} = props;
     const isDay = weather?.weather[0].icon?.includes('d')
-    const getTime = (timeStamp) => {
+    const Time = (timeStamp) => {
         return `${new Date(timeStamp * 1000).getHours()} : ${new Date(timeStamp * 1000).getMinutes()}`
     }
 
@@ -146,7 +146,9 @@ const WeatherComponent = (props) => {
 
             <WeatherContainer1>
                 
-                <WeatherIcon value1 ={weather?.weather?.icon}src={`http://openweathermap.org/img/wn/${weather?.weather[0].icon}.png`}/>
+                <WeatherIcon 
+                  src={`http://openweathermap.org/img/wn/${weather?.weather[0].icon}.png`}
+                />
 
                 <Condition>
                     <span>{`${Math.floor(weather?.main?.temp - 273)}°C`}</span>
@@ -167,7 +169,7 @@ const WeatherComponent = (props) => {
             <WeatherContainer2>
 
                 <WeatherInfoComponent name={isDay ? "sunset" : "sunrise"}
-                                      value={`${getTime(weather?.sys[isDay ? "sunset" : "sunrise"])}`}/>
+                                      value={`${Time(weather?.sys[isDay ? "sunset" : "sunrise"])}`}/>
                 <WeatherInfoComponent name={"humidity"} value={weather?.main?.humidity}/>
                 <WeatherInfoComponent name={"wind"} value={weather?.wind?.speed}/>
                 <WeatherInfoComponent name={"pressure"} value={weather?.main?.pressure}/>

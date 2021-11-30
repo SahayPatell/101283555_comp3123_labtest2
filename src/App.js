@@ -27,8 +27,8 @@ function App() {
   
   const [city, updateCity] = useState();
   const [weather, updateWeather] = useState();
-  const fetchWeather = async (e) => {
-    e.preventDefault();
+  const fetchWeather = async (x) => {
+    x.preventDefault();
     const response = await Axios.get(
       `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=c2b23f27c2e0d0dc786c3a97df8065d1`,
     );
@@ -37,7 +37,12 @@ function App() {
   return (
     <Container>
       <AppLabel>Weather Forecast</AppLabel>
-        <Weather updateCity={updateCity} fetchWeather={fetchWeather} weather={weather} city={city} />
+        <Weather 
+          updateCity={updateCity} 
+          fetchWeather={fetchWeather} 
+          weather={weather} 
+          city={city} 
+        />
     </Container>
   );
 }
