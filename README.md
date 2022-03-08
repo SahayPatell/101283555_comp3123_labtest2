@@ -1,4 +1,3 @@
-# Labtest 2 Full stack devlopment COMP3123
-# Sahay Mayurbhai patel
-# 101283555
 
+# Weather App - ReactJs
+## Welcome to the weather app
